@@ -21,6 +21,27 @@
       },
       "post": {
         "summary": "Adiciona um novo produto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "Teclado Mecânico"
+                  },
+                  "preco": {
+                    "type": "number",
+                    "example": 250.50
+                  }
+                },
+                "required": ["nome", "preco"]
+              }
+            }
+          }
+        },
         "responses": {
           "201": { "description": "Produto criado com sucesso" }
         }
@@ -37,6 +58,27 @@
             "schema": { "type": "integer" }
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "Teclado Atualizado"
+                  },
+                  "preco": {
+                    "type": "number",
+                    "example": 280.00
+                  }
+                },
+                "required": ["nome", "preco"]
+              }
+            }
+          }
+        },
         "responses": {
           "200": { "description": "Produto atualizado com sucesso" }
         }
