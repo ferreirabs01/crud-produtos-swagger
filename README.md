@@ -308,5 +308,8 @@ async function deletarProduto(id) {
 5. Execução
 Para iniciar a aplicação, execute o comando na raiz do projeto:
 
-
+```bash
 node server.js
+```
+
+instalacao swagger 
