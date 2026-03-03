@@ -386,6 +386,7 @@ Na raiz do projeto, deve-se criar um arquivo chamado swagger.json e adicionar a 
 
 
 2. Atualizar o arquivo server.js
+3. 
 ```
 //cod inicial add apos const db 
 // Importação do Swagger e do arquivo JSON
