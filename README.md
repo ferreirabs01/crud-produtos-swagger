@@ -313,3 +313,84 @@ node server.js
 ```
 
 instalacao swagger 
+
+```bash
+npm install swagger-ui-express
+```
+
+1. Criar o arquivo swagger.json
+Na raiz do projeto, deve-se criar um arquivo chamado swagger.json e adicionar a estrutura OpenAPI:
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Produtos",
+    "version": "1.0.0",
+    "description": "Documentação do CRUD de produtos"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor Local"
+    }
+  ],
+  "paths": {
+    "/api/produtos": {
+      "get": {
+        "summary": "Retorna a lista de todos os produtos",
+        "responses": {
+          "200": { "description": "Lista de produtos" }
+        }
+      },
+      "post": {
+        "summary": "Adiciona um novo produto",
+        "responses": {
+          "201": { "description": "Produto criado com sucesso" }
+        }
+      }
+    },
+    "/api/produtos/{id}": {
+      "put": {
+        "summary": "Atualiza um produto existente",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Produto atualizado com sucesso" }
+        }
+      },
+      "delete": {
+        "summary": "Remove um produto",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Produto removido com sucesso" }
+        }
+      }
+    }
+  }
+}
+```
+
+
+2. Atualizar o arquivo server.js
+```
+//cod inicial add apos const db 
+// Importação do Swagger e do arquivo JSON
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+```
+
+
