@@ -4,6 +4,10 @@ require('dotenv').config();
 
 const db = require('./db');
 
+// Importação do Swagger e do arquivo JSON
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -11,6 +15,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 // Rotas da API (CRUD)
